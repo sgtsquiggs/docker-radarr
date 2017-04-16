@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+cd /app/radarr || exit
+exec \
+    s6-setuidgid abc mono Radarr.exe "${RUN_OPTS}" \
+        -nobrowser \
+        -data=/config
